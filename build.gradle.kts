@@ -35,6 +35,9 @@ kotlin {
             dependencies {
                 implementation(kotlin("stdlib-js"))
                 implementation(libs.org.jetbrains.kotlinx.html.js)
+                implementation(libs.org.jetbrains.kotlin.wrappers.kotlin.react)
+                implementation(libs.org.jetbrains.kotlin.wrappers.kotlin.react.dom)
+                implementation(libs.org.jetbrains.kotlin.wrappers.kotlin.emotion)
 
                 // webpack
                 implementation(devNpm("html-webpack-plugin", "5.5.0"))

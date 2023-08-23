@@ -1,11 +1,16 @@
 [versions]
 org-jetbrains-kotlin-multiplatform = "1.9.0"
 org-jetbrains-kotlinx-kotlinx-html-js = "0.9.1"
+org-jetbrains-kotlin-wrappers-kotlin-react = "18.2.0-pre.346"
+org-jetbrains-kotlin-wrappers-kotlin-emotion = "11.9.3-pre.346"
 
 [plugins]
 org-jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "org-jetbrains-kotlin-multiplatform" }
 
 [libraries]
 org-jetbrains-kotlinx-html-js = { group = "org.jetbrains.kotlinx", name = "kotlinx-html-js", version.ref = "org-jetbrains-kotlinx-kotlinx-html-js" }
+org-jetbrains-kotlin-wrappers-kotlin-react = { group = "org.jetbrains.kotlin-wrappers", name = "kotlin-react", version.ref = "org-jetbrains-kotlin-wrappers-kotlin-react" }
+org-jetbrains-kotlin-wrappers-kotlin-react-dom = { group = "org.jetbrains.kotlin-wrappers", name = "kotlin-react-dom", version.ref = "org-jetbrains-kotlin-wrappers-kotlin-react" }
+org-jetbrains-kotlin-wrappers-kotlin-emotion = { group = "org.jetbrains.kotlin-wrappers", name = "kotlin-emotion", version.ref = "org-jetbrains-kotlin-wrappers-kotlin-emotion" }
 
 [bundles]
