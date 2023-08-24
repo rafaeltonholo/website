@@ -43,6 +43,7 @@ kotlin {
                 implementation(npm(name = "i18next", version = "^23.4.5"))
                 implementation(npm(name = "i18next-browser-languagedetector", version = "^7.1.0"))
                 implementation(npm(name = "react-i18next", version = "^13.2.0"))
+                implementation(npm(name = "react-icons", version = "^4.10.1"))
 
                 // webpack
                 implementation(devNpm("html-webpack-plugin", "5.5.0"))
