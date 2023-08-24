@@ -5,6 +5,7 @@ import react.create
 import react.dom.client.createRoot
 
 fun main() {
+
     globalStyle()
     document.body?.apply {
         val container = document.createElement("div")

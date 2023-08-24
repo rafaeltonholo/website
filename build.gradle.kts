@@ -11,7 +11,7 @@ repositories {
 }
 
 kotlin {
-    js {
+    js(IR) {
         moduleName = "resume"
         binaries.executable()
         browser {
@@ -39,12 +39,18 @@ kotlin {
                 implementation(libs.org.jetbrains.kotlin.wrappers.kotlin.react.dom)
                 implementation(libs.org.jetbrains.kotlin.wrappers.kotlin.emotion)
 
+                implementation(npm(name = "i18next", version = "^23.4.5"))
+                implementation(npm(name = "i18next-browser-languagedetector", version = "^7.1.0"))
+                implementation(npm(name = "react-i18next", version = "^13.2.0"))
+
                 // webpack
                 implementation(devNpm("html-webpack-plugin", "5.5.0"))
                 implementation(devNpm("uglifyjs-webpack-plugin", "2.2.0"))
                 implementation(devNpm("terser-webpack-plugin", "5.3.1"))
                 implementation(devNpm("copy-webpack-plugin", "9.1.0" )) // newer versions don't work correctly with npm and Yarn
                 implementation(devNpm("node-json-minify", "3.0.0"))
+
+                implementation(devNpm("dukat", "0.5.8-rc.4"))
             }
         }
         val jsTest by getting
