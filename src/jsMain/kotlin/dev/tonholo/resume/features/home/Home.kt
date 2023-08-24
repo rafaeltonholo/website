@@ -1,17 +1,14 @@
-package dev.tonholo.resume.pages
+package dev.tonholo.resume.features.home
 
-import Welcome
 import csstype.*
 import dev.tonholo.resume.components.FlexBox
+import dev.tonholo.resume.features.home.components.Profile
 import dev.tonholo.resume.util.WindowBreakpoints
-import emotion.css.css
 import emotion.react.css
 import react.FC
 import react.Props
 import react.PropsWithClassName
-import react.create
 import react.dom.html.ReactHTML.div
-import react.dom.html.ReactHTML.p
 
 private inline fun PropsWithClassName.transitionCss(
     crossinline block: PropertiesBuilder.() -> Unit,
@@ -47,6 +44,8 @@ val Home = FC<Props> {
                         minWidth = (size / 4).px
                     }
                 }
+
+                Profile()
             }
 
             div {

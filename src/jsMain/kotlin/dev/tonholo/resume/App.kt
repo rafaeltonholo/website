@@ -1,12 +1,9 @@
 package dev.tonholo.resume
 
-import dev.tonholo.resume.pages.Home
+import dev.tonholo.resume.features.home.Home
 import react.FC
 import react.Props
-import react.dom.html.ReactHTML.div
 
 val App = FC<Props> {
-    div {
-        Home()
-    }
+    Home()
 }
