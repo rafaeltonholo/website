@@ -14,10 +14,11 @@ kotlin {
     js(IR) {
         moduleName = "resume"
         binaries.executable()
+        useCommonJs()
         browser {
             webpackTask(Action {
                 mainOutputFileName.set("main.bundle.js")
-                output.library = "commonjs2"
+                output.libraryTarget = "commonjs2"
                 sourceMaps = true
             })
         }
