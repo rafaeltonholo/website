@@ -1,40 +1,36 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package dev.tonholo.resume.util.definitions.typescript.i18next
 
 import kotlin.js.Json
 
-external interface InitOptions {
-    var debug: Boolean?
-        get() = definedExternally
-        set(value) = definedExternally
-    var resources: Resource?
-        get() = definedExternally
-        set(value) = definedExternally
+@JsExport
+class InitOptions {
+    var debug: Boolean? = false
+    var resources: Resource? = Resource()
     var fallbackLng: dynamic /* Boolean? | String? | Array<String>? | FallbackLngObjList? | ((code: String) -> dynamic)? */
-        get() = definedExternally
-        set(value) = definedExternally
-    var interpolation: InterpolationOptions?
-        get() = definedExternally
-        set(value) = definedExternally
+        = "en"
+    var interpolation: InterpolationOptions? = InterpolationOptions()
 }
 
-external interface InterpolationOptions {
-    var escapeValue: Boolean?
-        get() = definedExternally
-        set(value) = definedExternally
+@JsExport
+class InterpolationOptions {
+    var escapeValue: Boolean? = false
 }
 
-external class ResourceLanguage
-inline operator fun ResourceLanguage.get(namespace: String): dynamic /* String? | Json? */ = asDynamic()[namespace]
-inline operator fun ResourceLanguage.set(namespace: String, value: String) {
+class ResourceLanguage
+operator fun ResourceLanguage.get(namespace: String): dynamic /* String? | Json? */ = asDynamic()[namespace]
+operator fun ResourceLanguage.set(namespace: String, value: String) {
     asDynamic()[namespace] = value
 }
-inline operator fun ResourceLanguage.set(namespace: String, value: Json) {
+operator fun ResourceLanguage.set(namespace: String, value: Json) {
     asDynamic()[namespace] = value
 }
 
 
-external class Resource
-inline operator fun Resource.get(language: String): ResourceLanguage = asDynamic()[language] as ResourceLanguage
-inline operator fun Resource.set(language: String, value: ResourceLanguage) {
+@JsExport
+class Resource
+operator fun Resource.get(language: String): ResourceLanguage = asDynamic()[language] as ResourceLanguage
+operator fun Resource.set(language: String, value: ResourceLanguage) {
     asDynamic()[language] = value
 }

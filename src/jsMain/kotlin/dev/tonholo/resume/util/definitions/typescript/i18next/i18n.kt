@@ -3,7 +3,7 @@ package dev.tonholo.resume.util.definitions.typescript.i18next
 import kotlin.js.Promise
 
 external interface i18n {
-    fun <T> init(options: InitOptions): Promise<Any>
+    fun init(options: InitOptions): Promise<Any>
     fun <T : Module> use(module: T): i18n /* this */
 }
 
