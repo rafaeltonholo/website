@@ -23,7 +23,7 @@ fun globalStyle() {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: ${Colors.secondary};
-    color: ${Colors.primary};
+    color: ${Colors.text.primary};
   }
 
   html body #root {
