@@ -2,16 +2,12 @@ package dev.tonholo.resume.features.home.components.skills
 
 import csstype.*
 import dev.tonholo.resume.style.Colors
-import emotion.css.cx
 import emotion.react.css
 import kotlinx.js.jso
-import react.CSSProperties
 import react.FC
 import react.Props
-import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.span
-import react.dom.html.ReactHTML.style
 import kotlin.math.round
 
 external interface ListItemProps : Props {

@@ -7,7 +7,6 @@ import dev.tonholo.resume.util.WindowBreakpoints
 import dev.tonholo.resume.util.definitions.typescript.react_i18next.useTranslation
 import emotion.react.css
 import kotlinx.browser.document
-import kotlinx.js.jso
 import react.ChildrenBuilder
 import react.FC
 import react.Props

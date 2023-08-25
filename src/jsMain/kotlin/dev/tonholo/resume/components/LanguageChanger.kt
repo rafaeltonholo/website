@@ -8,7 +8,6 @@ import emotion.react.css
 import react.FC
 import react.Props
 import react.PropsWithClassName
-import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.button
 import react.dom.html.ReactHTML.div
 

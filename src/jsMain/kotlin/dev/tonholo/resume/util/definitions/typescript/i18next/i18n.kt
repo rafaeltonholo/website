@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package dev.tonholo.resume.util.definitions.typescript.i18next
 
 import kotlin.js.Promise
