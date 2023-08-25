@@ -47,11 +47,11 @@ data class HomePage(
 
     data class SkillSection(
         val languages: Languages,
-        val programmingLanguages: ProgrammingLanguages
+        val programingLanguages: ProgrammingLanguages
     ) : JsonExport {
         override fun toJson(): Json = json(
             "languages" to languages.toJson(),
-            "programmingLanguages" to programmingLanguages.toJson(),
+            "programingLanguages" to programingLanguages.toJson(),
         )
 
         data class Languages(

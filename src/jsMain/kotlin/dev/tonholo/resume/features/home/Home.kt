@@ -3,6 +3,7 @@ package dev.tonholo.resume.features.home
 import csstype.*
 import dev.tonholo.resume.components.FlexBox
 import dev.tonholo.resume.features.home.components.Profile
+import dev.tonholo.resume.features.home.components.Skills
 import dev.tonholo.resume.util.WindowBreakpoints
 import emotion.react.css
 import react.FC
@@ -46,6 +47,8 @@ val Home = FC<Props> {
                 }
 
                 Profile()
+
+                Skills()
             }
 
             div {

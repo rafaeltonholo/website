@@ -17,7 +17,7 @@ object English : Locale {
                     en = "English",
                     pt = "Portuguese",
                 ),
-                programmingLanguages = HomePage.SkillSection.ProgrammingLanguages(
+                programingLanguages = HomePage.SkillSection.ProgrammingLanguages(
                     title = "Skills",
                     ctaShowMore = "Show more",
                     ctaShowLess = "Show less",

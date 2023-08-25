@@ -2,7 +2,7 @@ package dev.tonholo.resume.util.definitions.typescript.react_i18next
 
 import dev.tonholo.resume.util.definitions.typescript.i18next.i18n
 
-typealias TFunction = (key: String, defaultValue: String?, options: dynamic) -> String
+typealias TFunction = (key: String/*, defaultValue: String?, options: dynamic*/) -> String
 
 @Suppress("NOTHING_TO_INLINE")
 class UseTranslationResponse private constructor() {

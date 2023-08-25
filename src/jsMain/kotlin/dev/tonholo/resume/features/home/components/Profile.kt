@@ -44,7 +44,7 @@ val Profile = FC<Props> {
                 color = Colors.accents.primary
             }
 
-            +t("screens.home.info.jobTitle", null, null)
+            +t("screens.home.info.jobTitle")
         }
         contentSeparator()
 

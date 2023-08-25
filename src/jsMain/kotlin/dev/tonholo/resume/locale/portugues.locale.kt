@@ -1,7 +1,5 @@
 package dev.tonholo.resume.locale
 
-import kotlin.js.json
-
 object Portuguese : Locale {
     override val screens = object : Screen {
         override val home = HomePage(
@@ -19,7 +17,7 @@ object Portuguese : Locale {
                     en = "Inglês",
                     pt = "Português",
                 ),
-                programmingLanguages = HomePage.SkillSection.ProgrammingLanguages(
+                programingLanguages = HomePage.SkillSection.ProgrammingLanguages(
                     title = "Habilidades",
                     ctaShowMore = "Mostrar mais",
                     ctaShowLess = "Mostrar menos",
