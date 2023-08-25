@@ -5,6 +5,12 @@ import kotlin.js.Promise
 external interface i18n {
     fun init(options: InitOptions): Promise<Any>
     fun <T : Module> use(module: T): i18n /* this */
+
+    /**
+     * Changes the language. The callback will be called as soon translations were loaded or an error occurs while loading.
+     * HINT: For easy testing - setting lng to 'cimode' will set t function to always return the key.
+     */
+    fun changeLanguage(lng: String?): Promise<Any>
 }
 
 external interface Module {
