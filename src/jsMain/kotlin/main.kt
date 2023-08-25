@@ -46,6 +46,10 @@ fun main() {
             globalStyle()
             document.body?.apply {
                 val container = document.createElement("div")
+                container.id = "root"
+                appendChild(document.createElement("noscript").apply {
+                    textContent = "You need to enable JavaScript to run this app."
+                })
                 appendChild(container)
                 createRoot(container).render(App.create())
             }
