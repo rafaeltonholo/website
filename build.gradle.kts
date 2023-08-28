@@ -13,13 +13,7 @@ kotlin {
         moduleName = "website"
         binaries.executable()
         useCommonJs()
-        browser {
-            webpackTask(Action {
-                mainOutputFileName.set("main.bundle.js")
-                output.libraryTarget = "commonjs2"
-                sourceMaps = true
-            })
-        }
+        browser()
         generateTypeScriptDefinitions()
     }
 
@@ -45,10 +39,8 @@ kotlin {
 
                 // webpack
                 implementation(devNpm("html-webpack-plugin", "5.5.0"))
-                implementation(devNpm("uglifyjs-webpack-plugin", "2.2.0"))
-                implementation(devNpm("terser-webpack-plugin", "5.3.1"))
-                implementation(devNpm("copy-webpack-plugin", "9.1.0" )) // newer versions don't work correctly with npm and Yarn
-                implementation(devNpm("node-json-minify", "3.0.0"))
+                implementation(devNpm("terser-webpack-plugin", "5.3.9"))
+                implementation(devNpm("@swc/core", "1.3.80"))
 
                 implementation(devNpm("dukat", "0.5.8-rc.4"))
             }

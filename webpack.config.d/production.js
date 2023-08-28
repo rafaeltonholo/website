@@ -3,45 +3,42 @@
 // To check the outputs of this config, see ../build/distributions
 if (config.mode == "production") {
 
-    const HtmlWebpackPlugin     = require("html-webpack-plugin"),
-          UglifyJsWebpackPlugin = require("uglifyjs-webpack-plugin"),
-          TerserWebpackPlugin   = require("terser-webpack-plugin"),
-          CopyWebpackPlugin     = require("copy-webpack-plugin"),
-          NodeJsonMinify        = require("node-json-minify");
+  const HtmlWebpackPlugin = require("html-webpack-plugin"),
+    TerserWebpackPlugin = require("terser-webpack-plugin");
 
-    // Where to output and how to name JS sources.
-    // Using hashes for correct caching.
-    // The index.html will be updated correspondingly to refer the compiled JS sources.
-    config.output.filename = "js/[name].[contenthash].js";
+  // Where to output and how to name JS sources.
+  // Using hashes for correct caching.
+  // The index.html will be updated correspondingly to refer the compiled JS sources.
+  config.output.filename = "js/[name].[contenthash].js";
 
-    // Making sure optimization and minimizer configs exist, or accessing its properties can crash otherwise.
-    config.optimization = config.optimization || {};
-    const minimizer = config.optimization.minimizer = config.optimization.minimizer || [];
+  // Making sure optimization and minimizer configs exist, or accessing its properties can crash otherwise.
+  config.optimization = config.optimization || {};
+  config.optimization.splitChunks = config.optimization.splitChunks || {};
+  config.optimization.splitChunks.chunks = "all";
+  config.optimization.splitChunks.maxSize = 100000;
 
-    // Minifying HTML.
-    minimizer.push(new HtmlWebpackPlugin({
-        template: "./kotlin/index.html",
-        minify: {
-            removeAttributeQuotes: true,
-            collapseWhitespace: true,
-            removeComments: true,
-        },
-    }));
+  config.optimization.minimize = true;
+  const minimizer = config.optimization.minimizer = config.optimization.minimizer || [];
 
-    // Minifying and obfuscating JS.
-    minimizer.push(new UglifyJsWebpackPlugin({
-        parallel: true,   // speeds up the compilation
-        sourceMap: false, // help to match obfuscated functions with their origins, not needed for now
-        uglifyOptions: {
-            compress: {
-                drop_console: true, // removing console calls
-            }
-        }
-    }));
+  // Minifying HTML.
+  minimizer.push(new HtmlWebpackPlugin({
+    template: "./kotlin/index.html",
+    minify: {
+      collapseWhitespace: true,
+      keepClosingSlash: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true,
+    },
+  }));
 
-    // Additional JS minification.
-    minimizer.push(new TerserWebpackPlugin({
-        extractComments: true // excluding all comments (mostly licence-related ones) into a separate file
-    }));
+  // Additional JS minification.
+  minimizer.push(new TerserWebpackPlugin({
+    parallel: true,   // speeds up the compilation
+    extractComments: true, // excluding all comments (mostly licence-related ones) into a separate file
+    minify: TerserWebpackPlugin.swcMinify,
+  }));
 
 }
