@@ -49,7 +49,20 @@ external interface UseTranslationOptions<KPrefix> {
         set(value) = definedExternally
 }
 
+external interface TOptions {
+    var defaultValue: Any?
+    var returnObjects: Boolean?
+    var joinArrays: String?
+}
+
 external fun useTranslation(
     ns: dynamic = definedExternally,
     options: UseTranslationOptions<Any> = definedExternally
 ): UseTranslationResponse /* JsTuple<t, TFunction<FallbackNs<Ns>, KPrefix>, i18n, i18n, ready, Boolean> */
+
+
+@JsName("useTranslation")
+external fun useTranslationWithOptions(
+    ns: dynamic = definedExternally,
+    options: UseTranslationOptions<Any> = definedExternally
+): UseTranslationResponseWithOptions /* JsTuple<t, TFunction<FallbackNs<Ns>, KPrefix>, i18n, i18n, ready, Boolean> */
