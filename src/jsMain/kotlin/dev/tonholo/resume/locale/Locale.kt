@@ -1,5 +1,8 @@
 package dev.tonholo.resume.locale
 
+import csstype.array
+import kotlinext.js.asJsObject
+import kotlin.js.Date
 import kotlin.js.Json
 import kotlin.js.json
 
@@ -7,18 +10,28 @@ interface JsonExport {
     fun toJson(): Json
 }
 
+interface I18nKey {
+    val key: String
+}
+
 interface Locale : JsonExport {
     val screens: Screen
 
     override fun toJson(): Json = json(
-        "screens" to screens.toJson(),
+        screens.key to screens.toJson(),
     )
+
+    companion object {
+        val Default = English
+    }
 }
 
-interface Screen : JsonExport {
+interface Screen : JsonExport, I18nKey {
+    override val key: String get() = "screens"
+
     val home: HomePage
     override fun toJson(): Json = json(
-        "home" to home.toJson(),
+        home.key to home.toJson(),
     )
 }
 
@@ -27,18 +40,20 @@ data class HomePage(
     val info: InfoSection,
     val skills: SkillSection,
     val historySection: HistorySection,
-) : Page, JsonExport {
+) : Page, JsonExport, I18nKey {
+    override val key: String = "home"
 
     override fun toJson(): Json = json(
-        "info" to info.toJson(),
-        "skills" to skills.toJson(),
-        "historySection" to historySection.toJson(),
+        info.key to info.toJson(),
+        skills.key to skills.toJson(),
+        historySection.key to historySection.toJson(),
     )
 
     data class InfoSection(
         val jobTitle: String,
         val about: MultilineParagraph,
-    ) : JsonExport {
+    ) : JsonExport, I18nKey {
+        override val key: String = "info"
         override fun toJson(): Json = json(
             "jobTitle" to jobTitle,
             "about" to about.value,
@@ -48,7 +63,9 @@ data class HomePage(
     data class SkillSection(
         val languages: Languages,
         val programingLanguages: ProgrammingLanguages
-    ) : JsonExport {
+    ) : JsonExport, I18nKey {
+        override val key: String = "skills"
+
         override fun toJson(): Json = json(
             "languages" to languages.toJson(),
             "programingLanguages" to programingLanguages.toJson(),
@@ -82,7 +99,8 @@ data class HomePage(
     data class HistorySection(
         val work: WorkHistory,
         val educational: EducationalHistory,
-    ) : JsonExport {
+    ) : JsonExport, I18nKey {
+        override val key: String = "history"
 
         override fun toJson(): Json = json(
             "work" to work.toJson(),
@@ -102,7 +120,7 @@ data class HomePage(
             override fun toJson(): Json = json(
                 "title" to title,
                 "technologiesUsed" to technologiesUsed,
-                "experiences" to experiences.map { it.toJson() },
+                "experiences" to experiences.map { it.toJson() }.toTypedArray(),
             )
         }
 
@@ -112,7 +130,7 @@ data class HomePage(
         ) : History, JsonExport {
             override fun toJson(): Json = json(
                 "title" to title,
-                "experiences" to experiences.map { it.toJson() },
+                "experiences" to experiences.map { it.toJson() }.toTypedArray(),
             )
         }
 
@@ -120,12 +138,25 @@ data class HomePage(
             val name: String,
             val title: String,
             val description: ExperienceParagraph,
+            val starting: String? = null,
+            val ending: String? = null,
+            val technologiesUsed: List<String>? = null
         ) : JsonExport {
             override fun toJson(): Json = json(
                 "name" to name,
                 "title" to title,
                 "description" to description.value,
-            )
+            ).apply {
+                if (starting != null) {
+                    set("starting", starting)
+                }
+                if (ending != null) {
+                    set("ending", ending)
+                }
+                if (technologiesUsed != null) {
+                    set("technologies", technologiesUsed.toTypedArray())
+                }
+            }
         }
     }
 }
@@ -158,10 +189,15 @@ value class ExperienceParagraph private constructor(
 ) {
     companion object {
         operator fun invoke(highlight: String, vararg paragraphs: String): ExperienceParagraph {
+            var parsed = "$highlight <0>"
+            paragraphs.forEachIndexed { index, paragraph ->
+                parsed += "<${index + 1}>"
+                parsed += paragraph
+                parsed += "</${index + 1}>"
+            }
+
             return ExperienceParagraph(
-                value = "$highlight\n- ${
-                    paragraphs.joinToString("\n- ")
-                }",
+                value = parsed,
             )
         }
     }
