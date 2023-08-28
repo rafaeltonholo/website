@@ -1,8 +1,5 @@
 package dev.tonholo.resume.locale
 
-import csstype.array
-import kotlinext.js.asJsObject
-import kotlin.js.Date
 import kotlin.js.Json
 import kotlin.js.json
 
