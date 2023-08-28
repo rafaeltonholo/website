@@ -44,16 +44,4 @@ if (config.mode == "production") {
         extractComments: true // excluding all comments (mostly licence-related ones) into a separate file
     }));
 
-    // Minifying JSON locales.
-    config.plugins.push(new CopyWebpackPlugin({
-        patterns: [
-            {
-                context: "./kotlin",
-                from: "./locales/**/*.json",
-                to: "[path][name][ext]",
-                transform: content => NodeJsonMinify(content.toString())
-            }
-        ]
-    }));
-
 }
