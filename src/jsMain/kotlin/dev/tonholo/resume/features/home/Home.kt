@@ -26,7 +26,15 @@ private inline fun PropsWithClassName.transitionCss(
 val Home = FC<Props> {
 
     div {
-        transitionCss { }
+        transitionCss {
+            WindowBreakpoints.TABLET.mediaQuery {
+                height = 90.vh
+                margin = Margin(
+                    vertical = 3.vh,
+                    horizontal = 3.vw,
+                )
+            }
+        }
 
         FlexBox {
             div {
