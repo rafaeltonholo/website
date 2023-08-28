@@ -30,8 +30,10 @@ val Home = FC<Props> {
             WindowBreakpoints.TABLET.mediaQuery {
                 height = 90.vh
                 margin = Margin(
-                    vertical = 3.vh,
-                    horizontal = 3.vw,
+                    top = 1.vh,
+                    bottom = 3.vh,
+                    left = 3.vw,
+                    right = 3.vw,
                 )
             }
         }

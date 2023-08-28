@@ -13,14 +13,29 @@ interface I18nKey {
 
 interface Locale : JsonExport {
     val screens: Screen
+    val navBar: NavBar
 
     override fun toJson(): Json = json(
         screens.key to screens.toJson(),
+        navBar.key to navBar.toJson(),
     )
 
     companion object {
         val Default = English
     }
+}
+
+interface NavBar : JsonExport, I18nKey {
+    val home: String
+    val articles: String
+    val resume: String
+
+    override val key: String get() = "navbar"
+    override fun toJson(): Json = json(
+        "home" to home,
+        "articles" to articles,
+        "resume" to resume
+    )
 }
 
 interface Screen : JsonExport, I18nKey {

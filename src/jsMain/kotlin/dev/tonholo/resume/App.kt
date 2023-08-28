@@ -1,11 +1,13 @@
 package dev.tonholo.resume
 
 import dev.tonholo.resume.components.LanguageChanger
+import dev.tonholo.resume.components.NavBar
 import dev.tonholo.resume.features.home.Home
 import react.FC
 import react.Props
 
 val App = FC<Props> {
     LanguageChanger()
+    NavBar()
     Home()
 }

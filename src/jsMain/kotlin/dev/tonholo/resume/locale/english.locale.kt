@@ -215,4 +215,10 @@ object English : Locale {
             ),
         )
     }
+
+    override val navBar: NavBar = object : NavBar {
+        override val home: String = "Home"
+        override val articles: String = "Articles"
+        override val resume: String = "Resume"
+    }
 }

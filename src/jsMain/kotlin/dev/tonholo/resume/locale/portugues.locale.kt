@@ -120,5 +120,11 @@ object Portuguese : Locale {
             ),
         )
     }
+
+    override val navBar: NavBar = object : NavBar {
+        override val home: String = "Início"
+        override val articles: String = "Artigos"
+        override val resume: String = "Currículo"
+    }
 }
 
