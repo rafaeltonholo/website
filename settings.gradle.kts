@@ -10,4 +10,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "Resume"
+rootProject.name = "Website"

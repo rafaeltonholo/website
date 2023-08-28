@@ -1,10 +1,10 @@
-import dev.tonholo.resume.App
-import dev.tonholo.resume.locale.English
-import dev.tonholo.resume.locale.Portuguese
-import dev.tonholo.resume.util.definitions.typescript.i18next.*
-import dev.tonholo.resume.util.definitions.typescript.i18next_browser_languagedetector.LanguageDetectorModule
-import dev.tonholo.resume.util.definitions.typescript.react_i18next.initReactI18next
-import dev.tonholo.resume.util.style.globalStyle
+import dev.tonholo.website.App
+import dev.tonholo.website.locale.English
+import dev.tonholo.website.locale.Portuguese
+import dev.tonholo.website.util.definitions.typescript.i18next.*
+import dev.tonholo.website.util.definitions.typescript.i18next_browser_languagedetector.LanguageDetectorModule
+import dev.tonholo.website.util.definitions.typescript.react_i18next.initReactI18next
+import dev.tonholo.website.util.style.globalStyle
 import kotlinx.browser.document
 import react.create
 import react.dom.client.createRoot

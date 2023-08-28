@@ -12,7 +12,7 @@ repositories {
 
 kotlin {
     js(IR) {
-        moduleName = "resume"
+        moduleName = "website"
         binaries.executable()
         useCommonJs()
         browser {
