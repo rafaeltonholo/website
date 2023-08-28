@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalJsExport::class)
+@file:Suppress("unused")
 
 package dev.tonholo.website.util.definitions.typescript.i18next
 

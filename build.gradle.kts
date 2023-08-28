@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.support.compileKotlinScriptModuleTo
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.org.jetbrains.kotlin.multiplatform)

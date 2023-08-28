@@ -1,10 +1,13 @@
+@file:Suppress("unused")
+
 package dev.tonholo.website.util.definitions.typescript.i18next_browser_languagedetector
 
 import dev.tonholo.website.util.definitions.typescript.i18next.InitOptions
 import dev.tonholo.website.util.definitions.typescript.i18next.LanguageDetectorModule
 import dev.tonholo.website.util.definitions.typescript.i18next.Services
-import kotlin.js.*
-import org.w3c.dom.*
+import org.w3c.dom.HTMLElement
+import kotlin.js.Date
+import kotlin.js.Json
 
 external interface CookieOptions {
     var maxAge: Number?

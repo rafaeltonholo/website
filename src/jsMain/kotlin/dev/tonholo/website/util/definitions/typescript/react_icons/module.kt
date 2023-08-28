@@ -1,4 +1,5 @@
 @file:JsModule("react-icons/md")
+@file:Suppress("unused")
 
 package dev.tonholo.website.util.definitions.typescript.react_icons
 
