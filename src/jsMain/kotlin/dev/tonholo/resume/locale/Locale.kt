@@ -189,7 +189,7 @@ value class ExperienceParagraph private constructor(
 ) {
     companion object {
         operator fun invoke(highlight: String, vararg paragraphs: String): ExperienceParagraph {
-            var parsed = "$highlight <0>"
+            var parsed = "$highlight ${if (paragraphs.isNotEmpty()) "<0>" else ""}"
             paragraphs.forEachIndexed { index, paragraph ->
                 parsed += "<${index + 1}>"
                 parsed += paragraph

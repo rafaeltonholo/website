@@ -106,6 +106,24 @@ val History = FC<Props> {
 
         ul {
             id = "educational"
+            id = "work"
+            for (index in Locale.Default.screens.home.historySection.educational.experiences.indices) {
+                HistoryCard {
+                    company = t("screens.home.history.educational.experiences.${index}.name")
+                    description = t("screens.home.history.educational.experiences.${index}.description")
+                    title = t("screens.home.history.educational.experiences.${index}.title")
+                    starting = Date(t("screens.home.history.educational.experiences.${index}.starting"))
+                    val endingKey = "screens.home.history.educational.experiences.${index}.ending"
+                    val endingDate = t(endingKey).let {
+                        if (it == endingKey) {
+                            null
+                        } else {
+                            Date(it)
+                        }
+                    }
+                    ending = endingDate
+                }
+            }
         }
     }
 }

@@ -19,7 +19,8 @@ import kotlin.js.Date
 
 external interface HistoryItemProps : Props {
     var company: String
-    var descriptionKey: String
+    var descriptionKey: String?
+    var description: String?
     var title: String
     var starting: Date
     var ending: Date?
@@ -93,18 +94,23 @@ val HistoryCard = FC<HistoryItemProps> { props ->
                 fontSize = 0.9.em
                 lineHeight = 1.5.em
             }
-            Trans {
-                this.t = t
-                i18nKey = props.descriptionKey
+            props.descriptionKey?.let { descriptionKey ->
+                Trans {
+                    this.t = t
+                    i18nKey = descriptionKey
 
-                ul {
-                    className = ClassName("bullet-points")
-                    repeat(30) {
-                        li {
-                            +"placeholder"
+                    ul {
+                        className = ClassName("bullet-points")
+                        repeat(10) {
+                            li {
+                                +"placeholder"
+                            }
                         }
                     }
                 }
+            }
+            props.description?.let {
+                +it
             }
         }
 

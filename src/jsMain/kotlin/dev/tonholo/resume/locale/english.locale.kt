@@ -189,6 +189,8 @@ object English : Locale {
                             description = ExperienceParagraph(
                                 highlight = "- Development of applications to iOS, Android, Windows Phone.\n- Development of hybrid applications focused on Cordova (ionic) and Xamarin.",
                             ),
+                            starting = "2015/03/20",
+                            ending = "2016/01/09",
                         ),
                         HomePage.HistorySection.Experience(
                             name = "PUC-MG",
@@ -196,6 +198,8 @@ object English : Locale {
                             description = ExperienceParagraph(
                                 highlight = "Development of Digital Games using Unity3D engine, DirectX and OpenGL.",
                             ),
+                            starting = "2012/02/01",
+                            ending = "2014/09/10",
                         ),
                         HomePage.HistorySection.Experience(
                             name = "COTEMIG",
@@ -203,6 +207,8 @@ object English : Locale {
                             description = ExperienceParagraph(
                                 highlight = "",
                             ),
+                            starting = "2010/01/01",
+                            ending = "2012/01/01",
                         ),
                     ),
                 ),
