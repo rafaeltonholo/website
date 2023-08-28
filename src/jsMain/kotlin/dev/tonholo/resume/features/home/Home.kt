@@ -2,6 +2,7 @@ package dev.tonholo.resume.features.home
 
 import csstype.*
 import dev.tonholo.resume.components.FlexBox
+import dev.tonholo.resume.features.home.components.History
 import dev.tonholo.resume.features.home.components.Profile
 import dev.tonholo.resume.features.home.components.Skills
 import dev.tonholo.resume.util.WindowBreakpoints
@@ -55,6 +56,7 @@ val Home = FC<Props> {
                 css {
                     width = 100.pct
                 }
+                History()
             }
         }
     }
