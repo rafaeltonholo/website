@@ -1,16 +1,15 @@
 package dev.tonholo.resume.features.home.components
 
 import csstype.*
+import dev.tonholo.resume.components.contentSeparator
 import dev.tonholo.resume.features.home.components.skills.ListItem
 import dev.tonholo.resume.style.Colors
 import dev.tonholo.resume.util.WindowBreakpoints
 import dev.tonholo.resume.util.definitions.typescript.react_i18next.useTranslation
 import emotion.react.css
 import kotlinx.browser.document
-import react.ChildrenBuilder
 import react.FC
 import react.Props
-import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.button
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h2
@@ -137,18 +136,6 @@ val Skills = FC<Props> {
             } else {
                 +t("screens.home.skills.programingLanguages.ctaShowMore")
             }
-        }
-    }
-}
-
-private fun ChildrenBuilder.contentSeparator() {
-    ReactHTML.div {
-        css {
-            height = 2.px
-            background = Colors.accents.border
-            width = 100.pct
-            margin = Margin(vertical = 2.em, horizontal = 0.em)
-            borderRadius = 100.pct
         }
     }
 }

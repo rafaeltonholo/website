@@ -1,6 +1,8 @@
 package dev.tonholo.resume.features.home.components
 
 import csstype.*
+import dev.tonholo.resume.components.contentSeparator
+import dev.tonholo.resume.extension.css.FontWeightExtensions.weight
 import dev.tonholo.resume.style.Colors
 import dev.tonholo.resume.util.WindowBreakpoints
 import dev.tonholo.resume.util.definitions.typescript.react_i18next.Trans
@@ -30,7 +32,7 @@ val Profile = FC<Props> {
         h1 {
             css {
                 fontFamily = string("'Eczar', serif")
-                fontWeight = 500.unsafeCast<FontWeight>()
+                fontWeight = 500.weight
                 fontSize = 2.5.em
                 WindowBreakpoints.MOBILE_SMALL.mediaQuery {
                     fontSize = 2.3.em
@@ -124,18 +126,6 @@ val Profile = FC<Props> {
                     }
                 }
             }
-        }
-    }
-}
-
-private fun ChildrenBuilder.contentSeparator() {
-    div {
-        css {
-            height = 2.px
-            background = Colors.accents.border
-            width = 100.pct
-            margin = 1.em
-            borderRadius = 100.pct
         }
     }
 }
